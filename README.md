@@ -9,7 +9,7 @@ John Phillips, Hassan Alahmed, Jack Spicer, Duaa Alahmed, Sousheel Vunnam
   SkiU will provide a platform to help CU students find rides to the mountains during ski season. It will be built in mind of students, specifically freshman, who lack transportation to the mountains, but still wand to shred. In our experience, it has been difficult to find convenient transportation to get to the mountains, one of the best parts of Colorado. SkiU solves our problem by allowing student drivers to take other passengers to the mountains. This gets people skiing and boarding, saves gas, and connects people.
 
 
-  Security measures will be taken to limit to CU students. This allows for simple user verification through IdentiKey and will allow safer connections among those from CU.
+  Security measures will be taken to limit the user base to CU students. This allows for simple user verification through IdentiKey and will allow safer connections among those from CU.
 
 
   Users can either be drivers or passengers. Drivers will be able to reasonably charge students, ask for gas money, or volunteer. They're also able to set preferences on when they want to depart and return, or where they want to go. Passengers can then view the potential drivers and choose who they want to go with. They'll be able to filter through drivers based on their own preferences as well. Once a passenger requests a driver for a ride, the driver can accept it and their personal details will be shared to each other. From there, they can contact each other and specify plans.
