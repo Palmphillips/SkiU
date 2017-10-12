@@ -1,0 +1,54 @@
+/*Style*/
+
+.container {
+    position: relative;
+    margin-top: 100px;
+    max-width: 1000px;
+    padding: 5px;
+	background-color: #C0C0C0;
+	text-align: center;
+}
+
+.navbar-brand{
+
+	font-size: 25px;
+	font-weight: bold;
+	color: white !important;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+}
+
+.navbar{
+
+	height: 50px;
+	min-height: 0;
+}
+
+
+.btn{
+
+	font-family: 'Source Sans Pro', sans-serif;
+	width: 140px;
+	height: 30px;
+	padding: 6px;
+	font-size: 15px;
+	
+	letter-spacing: 1.5px;
+	font-weight: bold;
+	color: #13849E;
+	background: white;
+	border-radius: 100px;
+}
+
+.btn:hover{
+
+	background-color: #AAD5E6;
+	
+}
+
+body{
+	background-image: url(Background.jpg);
+	background-size: cover;
+	position: relative;
+}
+
