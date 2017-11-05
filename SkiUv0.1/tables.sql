@@ -17,7 +17,7 @@ create table if not exists `event` (
 `location` varchar(10) not null,
 `departure` varchar(10) not null,
 `arrival` varchar(10) not null,
-`passangers` varchar(100),
+`passengers` varchar(100),
 primary key (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=7;
 insert into `event` (`id`,`username`, `description`, `location`, `departure`, `arrival`) values
