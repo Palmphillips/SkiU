@@ -1,12 +1,11 @@
 /*Style*/
 
 .container {
-    position: relative;
-    margin-top: 100px;
-    max-width: 1000px;
-    padding: 5px;
-	background-color: #C0C0C0;
-	text-align: center;
+    color: #777;
+    background-color: #4286f4;
+    text-align:center;
+    padding:50px 80px;
+    text-align: justify;
 }
 
 .navbar-brand{
@@ -46,9 +45,38 @@
 	
 }
 
-body{
-	background-image: url(Background.jpg);
-	background-size: cover;
+body, html{
+	height: 100%;
+	margin: 0px;
 	
 }
 
+body{
+	display: block;
+}
+
+.pic1, .pic2 {
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.pic1 { 
+    /* The image used */
+    background-image: url(pic1.jpg);
+    min-height: 80%;
+}
+
+.pic2 { 
+    /* The image used */
+    background-image: url(pic2.jpg);
+    min-height: 80%;
+}
+
+.pic3 { 
+    /* The image used */
+    background-image: url(pic3.jpg);
+    min-height: 80%;
+}
