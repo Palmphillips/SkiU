@@ -5,7 +5,10 @@
     background-color: #4286f4;
     text-align:center;
     padding:50px 80px;
+    margin:0px;
     text-align: justify;
+    width:100%;
+    max-width: 100%;
 }
 
 .navbar-brand{
