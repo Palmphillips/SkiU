@@ -12,7 +12,7 @@ connection.connect((err) => {
   console.log('Connected!');
 });
 
-
+/*
 connection.query('SELECT * FROM user_info', (err,rows) => {
   if(err) throw err;
 
@@ -25,6 +25,7 @@ rows.forEach( (row) => {
 });
 
 });
+*/
 
 // Express Forms
 
@@ -43,9 +44,21 @@ app.post('/signin', function(req, res) {
   res.send('Your Email "' + req.body.email + '"' + '\n' + 'Your Password "' + req.body.pwd + '"');
 });
 
+/*
 app.post('/register', function(req, res) {
   res.send('Your Email "' + req.body.email + '"' + '\n' + 'Your Password "' + req.body.password + '"' + 'Your Password confirmation "' + req.body.password_confirm + '"' );
 });
+*/
+
+app.post('/register', function(req, res) {
+	connection.query("INSERT INTO user_info VALUES ('" + req.body.email + "', 'first', 'last', 'pass', '7', '2011')",
+		function (err, result) {
+			if (err) throw err;
+			res.send('User added to DB')
+		});
+	});
+
+		
 
 
 app.listen(8080, function() {
