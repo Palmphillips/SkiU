@@ -14,8 +14,10 @@
         <nav class="navbar navbar-default navbar-toggleable-xl fixed-top " style="overflow: hidden; background-color: #13849E">
             <a class="navbar-brand"  href="SkiU.html">Ski U</a>
         </nav>
+        
         <div style="background-image: url(styles/pic1.jpg); height: 100%; width: 100%; position: fixed;">
-        <div class="container" style="background-color:white; margin-top: 10%">
+			
+        <div class="container" style="background-color:white; margin-top: 10%" style="overflow:scroll">
             <form class="form-horizontal" action="http://127.0.0.1:8080/register" method="POST">
               <fieldset>
                 <div id="legend">
@@ -48,6 +50,44 @@
                     <p class="help-block">Please confirm password</p>
                   </div>
                 </div>
+                
+                <div class="control-group">
+                  <!-- First name -->
+                  <label class="control-label" for="fname">First Name</label>
+                  <div class="controls">
+                    <input type="text" id="name" name="fname" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your first name</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- Last name -->
+                  <label class="control-label" for="lname">Last Name</label>
+                  <div class="controls">
+                    <input type="text" id="name" name="lname" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your last name</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- Phone # -->
+                  <label class="control-label" for="phone">Phone</label>
+                  <div class="controls">
+                    <input type="text" id="phone" name="phone" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your phone number</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- School year -->
+                  <label class="control-label" for="year">Year</label>
+                  <div class="controls">
+                    <input type="text" id="year" name="year" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your school year</p>
+                  </div>
+                </div>
+                
+                
              
                 <div class="control-group">
                   <!-- Button -->
@@ -57,6 +97,7 @@
                 </div>
               </fieldset>
             </form>
+			<p>ugh</p>
         </div>
         </div>
     </body>
