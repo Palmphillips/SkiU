@@ -7,8 +7,8 @@
 6 silly lifecycle skiuv0.3@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle skiuv0.3@0.0.0~start: skiuv0.3@0.0.0
 8 verbose lifecycle skiuv0.3@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle skiuv0.3@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/user/CSCI3308/SkiU/SkiUv0.2/node_modules/.bin:/home/user/bin:/home/user/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-10 verbose lifecycle skiuv0.3@0.0.0~start: CWD: /home/user/CSCI3308/SkiU/SkiUv0.2
+9 verbose lifecycle skiuv0.3@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/home/sousheel/Programming/csci3308software/SkiU/SkiUv0.2/node_modules/.bin:/opt/ros/kinetic/bin:/home/sousheel/bin:/home/sousheel/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+10 verbose lifecycle skiuv0.3@0.0.0~start: CWD: /home/sousheel/Programming/csci3308software/SkiU/SkiUv0.2
 11 silly lifecycle skiuv0.3@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle skiuv0.3@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle skiuv0.3@0.0.0~start: Failed to exec start script
@@ -23,8 +23,8 @@
 14 verbose stack     at maybeClose (internal/child_process.js:821:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid skiuv0.3@0.0.0
-16 verbose cwd /home/user/CSCI3308/SkiU/SkiUv0.2
-17 error Linux 4.10.0-37-generic
+16 verbose cwd /home/sousheel/Programming/csci3308software/SkiU/SkiUv0.2
+17 error Linux 4.4.0-38-generic
 18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 19 error node v4.2.6
 20 error npm  v3.5.2
