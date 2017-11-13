@@ -43,6 +43,9 @@ app.post('/signin', function(req, res) {
   res.send('Your Email "' + req.body.email + '"' + '\n' + 'Your Password "' + req.body.pwd + '"');
 });
 
+app.post('/register', function(req, res) {
+  res.send('Your Email "' + req.body.email + '"' + '\n' + 'Your Password "' + req.body.password + '"' + 'Your Password confirmation "' + req.body.password_confirm + '"' );
+});
 
 
 app.listen(8080, function() {
