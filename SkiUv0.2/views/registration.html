@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="styles/registration.css" style="text/css" />
+	</head>
+	<body>
+        <nav class="navbar navbar-default navbar-toggleable-xl fixed-top " style="overflow: hidden; background-color: #13849E">
+            <a class="navbar-brand"  href="SkiU.html">Ski U</a>
+        </nav>
+        
+        <div style="background-image: url(styles/pic1.jpg); height: 100%; width: 100%; position: fixed;">
+			
+        <div class="container" style="background-color:white; margin-top: 10%" style="overflow:scroll">
+            <form class="form-horizontal" action="http://127.0.0.1:8080/register" method="POST">
+              <fieldset>
+                <div id="legend">
+                  <legend class="">Register</legend>
+                </div>
+                
+                <div class="control-group">
+                  <!-- E-mail -->
+                  <label class="control-label" for="email">E-mail</label>
+                  <div class="controls">
+                    <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please use your CU e-mail address. Other emails will not work</p>
+                  </div>
+                </div>
+             
+                <div class="control-group">
+                  <!-- Password-->
+                  <label class="control-label" for="password">Password</label>
+                  <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                    <p class="help-block">Password should be at least 6 characters and inclue a number and an uppercase letter</p>
+                  </div>
+                </div>
+             
+                <div class="control-group">
+                  <!-- Password -->
+                  <label class="control-label"  for="password_confirm">Password (Confirm)</label>
+                  <div class="controls">
+                    <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please confirm password</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- First name -->
+                  <label class="control-label" for="fname">First Name</label>
+                  <div class="controls">
+                    <input type="text" id="name" name="fname" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your first name</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- Last name -->
+                  <label class="control-label" for="lname">Last Name</label>
+                  <div class="controls">
+                    <input type="text" id="name" name="lname" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your last name</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- Phone # -->
+                  <label class="control-label" for="phone">Phone</label>
+                  <div class="controls">
+                    <input type="text" id="phone" name="phone" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your phone number</p>
+                  </div>
+                </div>
+                
+                <div class="control-group">
+                  <!-- School year -->
+                  <label class="control-label" for="year">Year</label>
+                  <div class="controls">
+                    <input type="text" id="year" name="year" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your school year</p>
+                  </div>
+                </div>
+                
+                
+             
+                <div class="control-group">
+                  <!-- Button -->
+                  <div class="controls">
+                    <button class="btn btn-success">Register</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+			<p>ugh</p>
+        </div>
+        </div>
+    </body>
+</html>
