@@ -3,11 +3,11 @@ var router = express.Router();
 
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'capita706560',
-  database : 'skiu'
+const connection = mysql.createConnection({
+  host: 'us-cdbr-iron-east-05.cleardb.net',
+  user: 'ba8c6efcf34d52',
+  password: '23eda3ad',
+  database: 'heroku_d087506ec02ec33'
 });
 
 router.post('/', function(req, res) {
