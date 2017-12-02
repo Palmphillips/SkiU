@@ -6,8 +6,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'Sou91599!!',
-  database : 'SkiU'
+  password : 'capita706560',
+  database : 'skiu'
 });
 
 router.get('/', function(req, res, next) {

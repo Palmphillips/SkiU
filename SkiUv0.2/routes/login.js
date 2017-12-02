@@ -6,8 +6,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'Sou91599!!',
-  database : 'SkiU'
+  password : 'capita706560',
+  database : 'skiu'
 });
 
 router.post('/', function(req, res) {
@@ -37,7 +37,7 @@ router.post('/', function(req, res) {
           sess.email=email;
           sess.first_name=rows[0].first_name;
           sess.last_name=rows[0].last_name;
-          res.redirect('home');
+          res.redirect('/home');
         }
         else{
           res.send("Email and password does not match");
