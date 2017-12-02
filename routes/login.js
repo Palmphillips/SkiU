@@ -24,7 +24,7 @@ router.post('/', function(req, res) {
   // if(!passwordRe.test(req.body.password)){
   //   window.alert('Please enter in a valid password.');
   // }
-  
+
 
   // Checks for user in database
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
@@ -52,5 +52,6 @@ router.post('/', function(req, res) {
   });
 
 });
+
 
 module.exports = router;
