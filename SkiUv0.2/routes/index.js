@@ -29,6 +29,15 @@ router.get('/', function(req, res, next) {
   //
   // // res.send(path.basename(path.dirname(filename)));
 
+  var sess = req.session;
+  if(sess.email) {
+
+      res.redirect('home');
+  }
+  else {
+      res.redirect('SkiU');
+  }
+
   res.render('SkiU');
 });
 

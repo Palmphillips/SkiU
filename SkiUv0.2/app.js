@@ -4,11 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = = require('express-session')
 
 var index = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var home = require('./routes/home');
+var profile = require('./routes/profile');
+var editProfile = require('./routes/editProfile');
 
 var app = express();
 
@@ -29,6 +32,9 @@ app.use('/', index);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/home', home);
+app.use('/profile', profile);
+app.use('/editProfile', editProfile);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,5 +53,15 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// Session Handling
+// use sessions for tracking logins
+app.use(session({
+  secret: 'SkiU loves falafel',
+  resave: true,
+  saveUninitialized: false
+}));
+
+
 
 module.exports = app;

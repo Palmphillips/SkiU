@@ -29,30 +29,34 @@ router.post('/', function(req, res) {
   //connection.connect();
 
   // Tests inputs using Regular Expressions
-  var emailRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-  if(!emailRe.test(req.body.email)){
-    window.alert('Please enter in a valid colorado.edu email address.');
-  }
-  var passwordRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-  if(!passwordRe.test(req.body.password)){
-    window.alert('Please enter in a valid colorado.edu email address.');
-  }
-  var fnameRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-  if(!fnameRe.test(req.body.fname)){
-    window.alert('Please enter in a valid colorado.edu email address.');
-  }
-  var lnameRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-  if(!lnameRe.test(req.body.lname)){
-    window.alert('Please enter in a valid colorado.edu email address.');
-  }
-  var phoneRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-  if(!phoneRe.test(req.body.phone)){
-    window.alert('Please enter in a valid colorado.edu email address.');
-  }
-  var yearRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
-  if(!yearRe.test(req.body.year)){
-    window.alert('Please enter in a valid colorado.edu email address.');
-  }
+  // var emailRe = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+  // var coloradoEmailRe = /.*/;
+  // if(!emailRe.test(req.body.email) && !coloradoEmailRe.test(req.body.email)){
+  //   window.alert('Please enter in a valid colorado.edu email address.');
+  // }
+  // var passwordRe = /(?:\d{3}|\(\d{3}\))([-\/\.])\d{3}\1\d{4}/;
+  // if(!passwordRe.test(req.body.password)){
+  //   window.alert('Please enter in a valid password.');
+  // }
+  // // First name and last name with only letters and less than 20 characters long
+  // var fnameRe = /[a-zA-Z]{1,20}/;
+  // if(!fnameRe.test(req.body.fname)){
+  //   window.alert('Please enter in a valid first name.');
+  // }
+  // var lnameRe = /[a-zA-Z]{1,20}/;
+  // if(!lnameRe.test(req.body.lname)){
+  //   window.alert('Please enter in a valid last name.');
+  // }
+  // // North american phone number regex
+  // var phoneRe = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  // if(!phoneRe.test(req.body.phone)){
+  //   window.alert('Please enter in a valid US phone number.');
+  // }
+  // // Digit less than 4 letters
+  // var yearRe = /^\d{4}$/;
+  // if(!yearRe.test(req.body.year)){
+  //   window.alert('Please enter in a valid graduation year.');
+  // }
 
 
 	connection.query("INSERT INTO user_info VALUES ('" + req.body.email + "', '" + req.body.password + "', '" + req.body.fname + "', '" + req.body.lname + "', '" + req.body.phone + "', '" + req.body.year + "')", function (err, result) {
