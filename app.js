@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('express-session')
+var session = require('express-session');
+
 
 var index = require('./routes/index');
 var login = require('./routes/login');
@@ -14,6 +15,14 @@ var profile = require('./routes/profile');
 var editProfile = require('./routes/editProfile');
 
 var app = express();
+
+// Session Handling
+// use sessions for tracking logins
+app.use(session({
+  secret: 'SkiU loves falafel',
+  resave: true,
+  saveUninitialized: true
+}));
 
 // view engine setup
 app.engine('.html', require('ejs').__express);
@@ -53,15 +62,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// Session Handling
-// use sessions for tracking logins
-app.use(session({
-  secret: 'SkiU loves falafel',
-  resave: true,
-  saveUninitialized: false
-}));
-
 
 
 module.exports = app;

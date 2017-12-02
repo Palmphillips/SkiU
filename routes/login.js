@@ -31,12 +31,15 @@ router.post('/', function(req, res) {
     if (err) throw err;
       if(rows.length >0){
         if(rows[0].password == password){
-          res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
-          //In this we are assigning email to sess.email variable.
+          //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
+
+          // Assigning session variables to indicate that user is logged in
           var sess = req.session;
+          sess.loggedIn = true;
           sess.email=email;
           sess.first_name=rows[0].first_name;
           sess.last_name=rows[0].last_name;
+
           res.redirect('/home');
         }
         else{

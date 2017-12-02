@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   }
   else {
     res.send('this profile is somebody elses')
-    res.redirect('/home');
+    //res.redirect('/home');
   }
 });
 

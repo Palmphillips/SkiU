@@ -6,8 +6,8 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'capita706560',
-  database : 'skiu'
+  password : 'Sou91599!!',
+  database : 'SkiU'
 });
 
 router.get('/', function(req, res, next) {
@@ -61,6 +61,14 @@ router.post('/', function(req, res) {
 
 	connection.query("INSERT INTO user_info VALUES ('" + req.body.email + "', '" + req.body.password + "', '" + req.body.fname + "', '" + req.body.lname + "', '" + req.body.phone + "', '" + req.body.year + "')", function (err, result) {
 		if (err) throw err;
+
+    // Assigning session variables to indicate that user is logged in
+    var sess = req.session;
+    sess.loggedIn = true;
+    sess.email=req.body.email;
+    sess.first_name=req.body.fname;
+    sess.last_name=req.body.lname;
+
 		res.redirect('home');
 	});
   //connection.end();
