@@ -34,13 +34,18 @@ router.post('/', function(req, res) {
           //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
 
           // Assigning session variables to indicate that user is logged in
+          
+          
+          
           var sess = req.session;
           sess.loggedIn = true;
           sess.email=email;
           sess.first_name=rows[0].first_name;
           sess.last_name=rows[0].last_name;
-
+          
           res.redirect('/home');
+
+          
         }
         else{
           res.send("Email and password does not match");
