@@ -5,9 +5,9 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'root',
-  password : 'Sou91599!!',
-  database : 'SkiU'
+  user     : '',
+  password : '',
+  database : ''
 });
 
 router.post('/', function(req, res) {
@@ -15,6 +15,7 @@ router.post('/', function(req, res) {
   var password = req.body.pwd;
 
   res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '"');
+
 
   // connection.query('SELECT * FROM user_info WHERE username = ' + email, function (err, rows, fields) {
   //   if (err) throw err;
