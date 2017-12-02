@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.send("Your email: " + req.session.email);
-  //res.render('home');
+  //res.send("Your email: " + req.session.email);
+  res.render('home');
 
   // Instead of app.get logout, have button that logs you out
   // app.get('/logout',function(req,res){
@@ -15,11 +15,6 @@ router.get('/', function(req, res, next) {
   //       }
   //     });
   //   });
-
-
-
-
-
 });
 
 module.exports = router;
