@@ -25,14 +25,6 @@ router.post('/', function(req, res) {
   //   window.alert('Please enter in a valid password.');
   // }
 
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    con.query('SELECT * FROM user_info', function (err, result) {
-      if (err) throw err;
-      console.log("Result: " + result);
-    });
-  });
   
   // Checks for user in database
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
