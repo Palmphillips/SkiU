@@ -13,6 +13,7 @@ var register = require('./routes/register');
 var home = require('./routes/home');
 var profile = require('./routes/profile');
 var editProfile = require('./routes/editProfile');
+var eventPage = require('./routes/event')
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use('/register', register);
 app.use('/home', home);
 app.use('/profile', profile);
 app.use('/editProfile', editProfile);
+app.use('/event', eventPage);
 
 
 // catch 404 and forward to error handler
