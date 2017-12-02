@@ -10,8 +10,6 @@ var connection = mysql.createConnection({
   database: 'heroku_d087506ec02ec33'
 });
 
-connection.connect();
-
 router.post('/', function(req, res) {
   var email= req.body.email.toString();
   var password = req.body.pwd;
@@ -27,7 +25,15 @@ router.post('/', function(req, res) {
   //   window.alert('Please enter in a valid password.');
   // }
 
-
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    con.query('SELECT * FROM user_info', function (err, result) {
+      if (err) throw err;
+      console.log("Result: " + result);
+    });
+  });
+  
   // Checks for user in database
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
