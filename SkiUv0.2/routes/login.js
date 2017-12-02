@@ -5,9 +5,9 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : '',
-  password : '',
-  database : ''
+  user     : 'root',
+  password : 'capita706560',
+  database : 'skiu'
 });
 
 router.post('/', function(req, res) {
@@ -19,7 +19,8 @@ router.post('/', function(req, res) {
     if (err) throw err;
       if(rows.length >0){
         if(rows[0].password == password){
-          res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
+          res.redirect('/home');
+         /* res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login'); */
         }
         else{
           res.send("Email and password does not match");
