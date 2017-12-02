@@ -35,10 +35,10 @@ router.get('/', function(req, res, next) {
       res.redirect('home');
   }
   else {
-      res.redirect('SkiU');
+      res.render('SkiU');
   }
 
-  res.render('SkiU');
+  //res.render('SkiU');
 });
 
 module.exports = router;
