@@ -25,40 +25,26 @@ router.post('/', function(req, res) {
   // if(!passwordRe.test(req.body.password)){
   //   window.alert('Please enter in a valid password.');
   // }
-  var db_config = {
+ var connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-05.cleardb.net',
     user: 'ba8c6efcf34d52',
     password: '23eda3ad',
     database: 'heroku_d087506ec02ec33'
-  };
+  });
 
-  var connection;
+connection.connect();
 
-  function handleDisconnect() {
-      console.log('1. connecting to db:');
-      connection = mysql.createConnection(db_config); // Recreate the connection, since
-                            // the old one cannot be reused.
+app.get('/', function(request, response) {
+  connection.query('SELECT * from user_info', function(err, rows, fields) {
+      if (err) {
+        console.log('error: ', err);
+        throw err;
+      }
+      response.send([rows]);
+    });
+});
 
-      connection.connect(function(err) {                // The server is either down
-          if (err) {                                     // or restarting (takes a while sometimes).
-              console.log('2. error when connecting to db:', err);
-              setTimeout(handleDisconnect, 1000); // We introduce a delay before attempting to reconnect,
-          }                                       // to avoid a hot loop, and to allow our node script to
-      });                                       // process asynchronous requests in the meantime.
-                            // If you're also serving http, display a 503 error.
-      connection.on('error', function(err) {
-          console.log('3. db error', err);
-          if (err.code === 'PROTOCOL_CONNECTION_LOST') {  // Connection to the MySQL server is usually
-              handleDisconnect();                       // lost due to either server restart, or a
-          } else {                                        // connnection idle timeout (the wait_timeout
-              throw err;                                  // server variable configures this)
-          }
-      });
-  }
-
-  handleDisconnect();
-
-  // Checks for user in database
+  /*// Checks for user in database
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
       if(rows.length >0){
@@ -84,5 +70,6 @@ router.post('/', function(req, res) {
   });
 
 });
+*/
 
 module.exports = router;
