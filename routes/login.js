@@ -3,7 +3,7 @@ var router = express.Router();
 
 var mysql = require('mysql');
 
-const connection = mysql.createConnection({
+var connection = mysql.createConnection({
   host: 'us-cdbr-iron-east-05.cleardb.net',
   user: 'ba8c6efcf34d52',
   password: '23eda3ad',
@@ -25,7 +25,7 @@ router.post('/', function(req, res) {
   //   window.alert('Please enter in a valid password.');
   // }
 
-
+  
   // Checks for user in database
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
@@ -34,13 +34,18 @@ router.post('/', function(req, res) {
           //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
 
           // Assigning session variables to indicate that user is logged in
+          
+          
+          
           var sess = req.session;
           sess.loggedIn = true;
           sess.email=email;
           sess.first_name=rows[0].first_name;
           sess.last_name=rows[0].last_name;
-
+          
           res.redirect('/home');
+
+          
         }
         else{
           res.send("Email and password does not match");
@@ -52,5 +57,6 @@ router.post('/', function(req, res) {
   });
 
 });
+
 
 module.exports = router;
