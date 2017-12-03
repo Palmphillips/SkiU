@@ -25,7 +25,10 @@ router.get('/', function(req, res, next) {
         //   res.send('this profile is somebody elses')
         // }
         res.render("profile", {
-          name:rows[0].username,
+          first_name:rows[0].first_name,
+          last_name:rows[0].last_name,
+          email:rows[0].username,
+          phone:rows[0].phone,
           items : ['red', 'green']
         });
       }

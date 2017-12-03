@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mysql = require('mysql');
+var bcrypt = require('bcrypt');
 
 var connection = mysql.createConnection({
   host: 'us-cdbr-iron-east-05.cleardb.net',
@@ -25,31 +26,32 @@ router.post('/', function(req, res) {
   //   window.alert('Please enter in a valid password.');
   // }
 
-  
+
   // Checks for user in database
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
       if(rows.length >0){
-        if(rows[0].password == password){
-          //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
+        bcrypt.compare(password, rows[0].password, function(err, hashRes) {
+          if(hashRes) {
+           // Passwords match
+           //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
 
-          // Assigning session variables to indicate that user is logged in
-          
-          
-          
-          var sess = req.session;
-          sess.loggedIn = true;
-          sess.email=email;
-          sess.first_name=rows[0].first_name;
-          sess.last_name=rows[0].last_name;
-          
-          res.redirect('/home');
+           // Assigning session variables to indicate that user is logged in
 
-          
-        }
-        else{
-          res.send("Email and password does not match");
-        }
+
+
+           var sess = req.session;
+           sess.loggedIn = true;
+           sess.email=email;
+           sess.first_name=rows[0].first_name;
+           sess.last_name=rows[0].last_name;
+
+           res.redirect('/home');
+          } else {
+           // Passwords don't match
+           res.send("Email and password does not match");
+          }
+        });
       }
       else{
         res.send("Email does not exist");

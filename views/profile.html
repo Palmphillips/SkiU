@@ -30,9 +30,9 @@
 	<h1> Welcome! </h1>
 
 
-	<p>Name: <%= name %> </p>
-	<p>Email:</p>
-	<p>Phone:</p>
+	<p>Name: <%= first_name %> <%= last_name %></p>
+	<p>Email: <%= email %></p>
+	<p>Phone: <%= phone %></p>
 	<ul>
 		<% for(var i=0; i<items.length; i++) {%>
 			<li style="color:<%=items[i]%>;"><%= items[i] %></li>

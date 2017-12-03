@@ -12,7 +12,8 @@ insert into `user_info` (`username`, `first_name`, `last_name`, `password`, `pho
 ('duaa.alahmed@colorado.edu', 'Duaa', 'Alahmed', 'bbbbbbb', '7203283554', '2015'),
 ('jack.spicer@colorado.edu', 'jack', 'spicer', 'cccccc', '7987789845','2015'),
 ('john.phillips@colorado.edu', 'john', 'phillips', 'dddddd', '89756444442', '2015'),
-('Sousheel.vunnam@colorado.edu', 'Sousheel', 'vunnam', 'eeeeee', '7438597423', '2014');
+('Sousheel.vunnam@colorado.edu', 'Sousheel', 'vunnam', 'eeeeee', '7438597423', '2014')
+('example@colorado.edu', 'example', 'example', 'example', '0000000000', '0000');
 
 
 create table if not exists `events` (
