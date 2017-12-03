@@ -29,8 +29,7 @@ router.post('/', function(req, res) {
 //   //connection.connect();
 
 
-
-	connection.query("INSERT INTO events VALUES ('" + "placeholder" + "', '" + req.body.location + "', '" + req.body.departure + "', '" + req.body.date + "', '" + req.body.description + "', '" + req.body.passengers + "')", function (err, result) {
+	connection.query("INSERT INTO events VALUES (DEFAULT, '" + req.session.email + "', '" + req.body.location + "', '" + req.body.departure + "', '" + req.body.date + "', '" + req.body.description + "', '" + req.body.passengers + "')", function (err, result) {
 		if (err) throw err;
 
 
