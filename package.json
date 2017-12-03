@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "./node_modules/jshint/bin/jshint testCases.js"
+    "test": "./node_modules/mocha/bin/mocha testCases.js"
   },
   "engines": {
     "node": "9.2.0",
@@ -21,9 +21,14 @@
     "jade": "~1.11.0",
     "jquery-timepicker": "^1.3.3",
     "jshint": "^2.9.5",
+    "moment": "^2.19.3",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
-    "pikaday": "^1.6.1",
+    "node-unit-test": "^1.3.3",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
   }
 }

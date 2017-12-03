@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
   res.render('createEvent');
 });
 
-// router.post('/', function(req, res) {
+router.post('/', function(req, res) {
 //   // connection.connect();
 //   //
 //   // connection.query('SELECT * FROM events', function (err, rows, fields) {
@@ -37,6 +37,7 @@ router.get('/', function(req, res, next) {
 		res.redirect('home');
 	});
   connection.end();
+
 });
 
 module.exports = router;
