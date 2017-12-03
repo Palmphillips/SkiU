@@ -28,7 +28,7 @@ router.get('/', function(req, res, next) {
           first_name:rows[0].first_name,
           last_name:rows[0].last_name,
           email:rows[0].username,
-          phone:roes[0].phone,
+          phone:rows[0].phone,
           items : ['red', 'green']
         });
       }
