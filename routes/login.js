@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mysql = require('mysql');
-var bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 var connection = mysql.createConnection({
   host: 'us-cdbr-iron-east-05.cleardb.net',
@@ -31,6 +31,9 @@ router.post('/', function(req, res) {
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
       if(rows.length >0){
+        console.log(rows[0].password);
+        console.log(rows[0].first_name);
+        console.log(password);
         bcrypt.compare(password, rows[0].password, function(err, hashRes) {
           if(hashRes) {
            // Passwords match
