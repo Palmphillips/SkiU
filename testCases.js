@@ -7,22 +7,27 @@ describe('loading express', function () {
   afterEach(function () {
     var server1 = server.listen(3000, function() {
       server1.close(function() {});
+    });
   });
-  });
- 
-  it('responds to /', function testSlash(done) {
+
+  it('SkiU responds to /', function testSlash(done) {
   request(server)
     .get('/')
     .expect(200, done);
   });
-  it('404 everything else', function testPath(done) {
+  it('404 for a random page', function testRandomPath(done) {
     request(server)
-      .get('/foo/bar')
+      .get('/thisshouldbreak')
       .expect(404, done);
   });
-  it('200 When navigating to register', function testRegister(done) {
+  it('Page responds When navigating to register page', function testRegister(done) {
     request(server)
     .get('/register')
+    .expect(200, done);
+  });
+  it('Page responds When navigating to a valid event page', function testEvent(done) {
+    request(server)
+    .get('/event?id=1')
     .expect(200, done);
   });
 });
