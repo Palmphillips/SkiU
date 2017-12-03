@@ -2,3 +2,14 @@ language: node_js
 node_js:
  - "node"
  - "stable"
+sudo: required
+before_install:
+  - npm install -g node-gyp
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-5
+env:
+  - CXX=g++-5
