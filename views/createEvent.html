@@ -4,22 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="styles/style.css" style="text/css" />
-	    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	    <link rel="stylesheet" href="/resources/demos/style.css">
-	    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	    <script>
-	    $( function() {
-	      $( "#datepicker" ).datepicker();
-	    } );
-	    </script>
 	</head>
-	<body class="container" style="background-image: url(Background.jpg); background-attachment: fixed;">
+	<body >
 
 
 	<nav class="navbar navbar-default navbar-toggleable-xl fixed-top " style="overflow: hidden; background-color: #13849E">
@@ -39,7 +31,7 @@
 	<div style="background-image: url(styles/pic1.jpg); height: 100%; width: 100%; position: fixed;overflow-y: scroll; margin-top: 50px">
 
         <div class="container" style="background-color:white; margin-bottom: 80px; margin-top: 50px">
-            <form class="form-horizontal" action="/register" method="POST">
+            <form class="form-horizontal" action="/createEvent" method="POST">
               <fieldset>
                 <div id="legend">
                   <legend class="">Create an Event</legend>
@@ -47,31 +39,64 @@
 
                 <div class="form-check form-check-inline">
 				  <label class="form-check-label">
-				    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Driver
+				    <input class="form-check-input" type="radio" name="type" id="driver" value="option1"> Driver
 				  </label>
 				</div>
 				<div class="form-check form-check-inline">
 				  <label class="form-check-label">
-				    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Passenger
+				    <input class="form-check-input" type="radio" name="type" id="passenger" value="option2"> Passenger
+				  </label>
+				</div>
+				<!-- 
+				<div class="form-check form-check-inline">
+				  <label class="form-check-label">
+					<input type="text" class="timepicker" name="time"/>
 				  </label>
 				</div>
 
-				<select class="form-control">
+				<div class="control-group">                  <label class="control-label" for="lname">Pick a departure time</label>
+                  <div class="controls">
+                    <input type="text" id="name" name="lname" placeholder="" class="input-xlarge">
+                    <p class="help-block">Please insert your last name</p>
+                  </div>
+                </div> -->
+
+				<select class="form-control" id="location" style="width: 300px">
 				  <option>Select a Mountain...</option>;<option>Arapahoe Basin</option>;<option>Aspen</option>;<option>Beaver Creek</option>;<option>Breckenridge</option>
 				  <option>Copper</option>;<option>Eldora</option>;<option>Keystone</option>;<option>Loveland</option>;<option>Steamboat</option>
 				  <option>Vail</option>;<option>Beaver Creek</option>;
 
 				</select>
 
-
-				<p>Date: <input type="text" id="datepicker"></p>
+				<!-- jQuery datpicker to be implemented later -->
+				<!-- <label for="datepicker">Date:</label>
+				<input type="text" id="datepicker" aria-label="Use the arrow keys to pick a date"> -->
 
                 <div class="control-group">
-                  <!-- School year -->
-                  <label class="control-label" for="year">Year</label>
+                  <label class="control-label" for="departure">Departure Time</label>
                   <div class="controls">
-                    <input type="text" id="year" name="year" placeholder="" class="input-xlarge">
-                    <p class="help-block">Please insert your school year</p>
+                    <input type="text" id="departure" name="year" placeholder="Enter a time" class="input-xlarge">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="date">Day</label>
+                  <div class="controls">
+                    <input type="text" id="date" name="year" placeholder="Enter a day" class="input-xlarge">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="description">Add a short description</label>
+                  <div class="controls">
+                    <input type="text" id="description" name="year" placeholder="Enter a description" class="input-xlarge">
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="passengers">How many passengers are you taking already?</label>
+                  <div class="controls">
+                    <input type="text" id="passengers" name="year" placeholder="Enter the number of passengers" class="input-xlarge">
                   </div>
                 </div>
 
@@ -80,7 +105,7 @@
                 <div class="control-group">
                   <!-- Button -->
                   <div class="controls">
-                    <button class="btn btn-success">Register</button>
+                    <button class="btn btn-success">Submit</button>
                   </div>
                 </div>
               </fieldset>
@@ -88,35 +113,23 @@
         </div>
         </div>
 
-<!-- 
-	<h1> <%= location %> </h1>
-	<p>Driver: <%= driver_first_name + " " + driver_last_name %> </p>
-	<p>Email: <%= driver_username %> Phone: <%= driver_phone %></p>
-
-	<table>
-		<tr>
-			<th>Resort</th>
-			<th>Time</th>
-			<th>Driver</th>
-		</tr>
-		<tr>
-			<td>Keystone</td>
-			<td>8:00AM May 22, 2017</td>
-			<td>Duaa Alahmed</td>
-		</tr>
-		<tr>
-			<td>Breck</td>
-			<td>8:00AM May 22, 2017</td>
-			<td>John Alahmed</td>
-		</tr>
-
-	</table> -->
-
-
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+     <!--  <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+      <script src="pikaday.js"></script>
+	  <script>
+		    var picker = new Pikaday(
+		    {
+		        field: document.getElementById('datepicker'),
+		        firstDay: 1,
+		        minDate: new Date(),
+		        maxDate: new Date(2020, 12, 31),
+		        yearRange: [2000,2020]
+		    });
+	  </script> -->
+
 
 	</body>
 </html>
