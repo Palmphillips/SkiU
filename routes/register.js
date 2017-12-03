@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var mysql = require('mysql');
-const bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt');
 
 const connection = mysql.createConnection({
   host: 'us-cdbr-iron-east-05.cleardb.net',
