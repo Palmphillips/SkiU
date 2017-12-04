@@ -1,5 +1,4 @@
-• Who:List of people on the team
-John Phillips, Hassan Alahmed, Jack Spicer, Duaa Alahmed, Sousheel Vunnam
+• Who: John Phillips, Hassan Alahmed, Jack Spicer, Duaa Alahmed, Sousheel Vunnam
 
 • Title: SkiU
 
