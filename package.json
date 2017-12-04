@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "./node_modules/mocha/bin/mocha testCases.js"
+    "test": "./node_modules/mocha/bin/mocha testCases.js --exit"
   },
   "engines": {
     "node": "9.2.0",
