@@ -10,39 +10,23 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="styles/style.css" style="text/css" />
 	</head>
-	<body class="container" style="background-image: url(Background.jpg); background-attachment: fixed;">
+	<body class="container">
 
 
 	<nav class="navbar navbar-default navbar-toggleable-xl fixed-top " style="overflow: hidden; background-color: #13849E">
 		<div class="container-fluid">
 			<div>
-				<a class="navbar-brand"  href="#">Ski U</a>
+				<a class="navbar-brand"  href="home">Ski U</a>
 			</div>
 
 			<ul class="nav navbar-default">
-				<a href="profile.html" style="margin-right:10px" class="btn">Profile</a>
-				<a href="events.html" style="margin-right:10px" class="btn">Make Event</a>
-				<a href="about.html" class="btn">About</a>
+				<a href="createEvent" style="margin-right:10px" class="btn">Make Event</a>
+				<a href="about" class="btn">About</a>
 			</ul>
 		</div>
 	</nav>
 
-	<h1> Welcome! </h1>
 
-
-	<p>Name: <%= first_name %> <%= last_name %></p>
-	<p>Email: <%= email %></p>
-	<p>Phone: <%= phone %></p>
-	<ul>
-		<% for(var i=0; i<items.length; i++) {%>
-			<li style="color:<%=items[i]%>;"><%= items[i] %></li>
-			<br>
-		<% } %>
-	</ul>
-
-
-
-        </div><!-- /.container -->
 
 
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

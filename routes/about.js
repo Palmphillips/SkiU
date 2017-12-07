@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 });
 
 router.get('/', function(req, res, next) {
-  res.render('profile');
+  res.render('about');
 });
 
 module.exports = router;
