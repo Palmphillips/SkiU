@@ -46,13 +46,18 @@ router.get('/', function(req, res, next) {
   //   }
   // });
   //
-
+  // var myEventArray = [];
   //
   // // Get information about user
-  // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, myEventRows, fields) {
+  // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, userRows, fields) {
   //    if (err) throw err;
-  //      if(myEventRows.length>0){
-  //
+  //      if(userRows.length>0){
+  //        // Check if user has any events
+  //        if(userRows[0].events != NULL) {
+  //          // Place all events in a dictionary
+  //          // Will get information about events later
+  //          myEventArray = userRows[0].events.split(", ");
+  //        }
   //      }
   //      else{
   //
@@ -61,15 +66,35 @@ router.get('/', function(req, res, next) {
   // connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
   //   if (err) throw err;
   //     if(eventRows.length>0){
-  //       email = eventRows[0].username;
-  //       // if (email == req.session.email) {
-  //       //   res.send('this event is yours');
-  //       // }
-  //       // else {
-  //       //   res.send('this event is somebody elses')
-  //       //
-  //       // }
-  //
+  //       for (var i=0; i<eventRows.length; i++){
+  //         // When user is a passenger (from before)
+  //         var passenger = false;
+  //         for (var j=0; j<myEventArray.length; j++){
+  //           if (eventRows[i].id == myEventArray[j]){
+  //             my_events["passenger"][eventRows[i].id] = {
+  //               // Populate stuff here
+  //             };
+  //             passenger = true;
+  //             break;
+  //           }
+  //         }
+  //         // When user is a driver (they created the event)
+  //         var driver = false;
+  //         if (eventRows[i].username == email){
+  //           my_events["driver"][eventRows[i].id] = {
+  //             // Populate stuff here
+  //           };
+  //           driver = true;
+  //         }
+  //         // Otherwise place event in events list
+  //         if (passenger == false && driver == false){
+  //           if (eventRows[i].location in events){
+  //             events[eventRows[i].location][eventRows[i].id] = {
+  //               // Populate stuff here
+  //             };
+  //           }
+  //         }
+  //       }
   //     }
   //     else{
   //       // send error
