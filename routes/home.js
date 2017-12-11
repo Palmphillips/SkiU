@@ -28,44 +28,28 @@ router.get('/', function(req, res, next) {
   var last_name = sess.last_name;
   var my_events = {};
   var events = {
-    "Arapahoe Basin": {
-      3: {
-        username: "pls",
-        departure: "69am",
-        date: "date69",
-        description: "blah blah"
-      },
-      5: {
-        username: "pls",
-        departure: "69am",
-        date: "date69",
-        description: "blah blah"
-      }
-    },
-    "Aspen": {
-    },
-    "Beaver Creek": {
-    },
-    "Breckenridge": {
-    },
-    "Copper Mountain": {
-    },
-    "Eldora": {
-    },
-    "Keystone": {
-    },
-    "Loveland": {
-    },
-    "Steamboat": {
-    },
-    "Vail": {
-      5: {
-        username: "pls",
-        departure: "69am",
-        date: "date69",
-        description: "blah blah"
-      }
-    }
+    // "Arapahoe Basin": {
+    //   3: {
+    //     username: "pls",
+    //     departure: "69am",
+    //     date: "date69",
+    //     description: "blah blah"
+    //   },
+    //   5: {
+    //     username: "pls",
+    //     departure: "69am",
+    //     date: "date69",
+    //     description: "blah blah"
+    //   }
+    // },
+    // "Vail": {
+    //   5: {
+    //     username: "pls",
+    //     departure: "69am",
+    //     date: "date69",
+    //     description: "blah blah"
+    //   }
+    // }
   };
 
   // // Start MySQL connection
@@ -86,7 +70,7 @@ router.get('/', function(req, res, next) {
   // });
   //
   // var myEventArray = [];
-  //
+
   // // Get information about user
   // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, userRows, fields) {
   //    if (err) throw err;
@@ -159,7 +143,7 @@ router.get('/logout',function(req,res){
     if(err) {
       console.log(err);
     } else {
-      res.render('/');
+      res.redirect('/');
     }
   });
 });

@@ -30,17 +30,125 @@
 	</nav>
 
 	<h1 style="font-family: 'Montserrat', sans-serif; font-size: 48px; padding: 30px; background-color: #4b8cf4; border-color: #557ec1; border-radius: 10px; margin-top: 20px; margin-bottom: 20px">My Events</h1>
+	<div class="row" style="margin-bottom: 20%">
+		<!-- First column -->
+		<div class="col-4">
+			<!-- Class -->
+			<div class="list-group" id="list-tab" role="tablist">
+				<a class="list-group-item list-group-item-action active" id="list-driver-list" data-toggle="list" href="#list-driver" role="tab" aria-controls="list-driver">Driver</a>
+				<a class="list-group-item list-group-item-action" id="list-passenger-list" data-toggle="list" href="#list-passenger" role="tab" aria-controls="passenger">Passenger</a>
+			</div>
+			<!-- Class -->
+		</div>
+		<!-- First column -->
 
+		<!-- Second column -->
+		<div class="col-8">
+			<!-- Content -->
+			<div class="tab-content" id="nav-tabContent">
+				<div class="tab-pane fade show active" id="list-driver" role="tabpanel" aria-labelledby="list-driver-list">
+					<% for (myClass in my_events) { %>
+					<% if (myClass == "driver") { %>
+					<% for (eventId in my_events[myClass]) { %>
+						<!-- Card -->
+						<div class="card" style="width: 20rem;">
+							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
+							<div class="card-block">
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= myClass %></h4>
+								<p class="card-text"><%= my_events[myClass][eventId].description %></p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<div class="row">
+									<div class="col-sm" style="padding-right: 0px">
+										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Date:</li>
+									</div>
+									<div class="col-sm" style="padding-left: 0px">
+										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= my_events[myClass][eventId].date %></li>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm" style="padding-right: 0px">
+										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif; ">Depart at:</li>
+									</div>
+									<div class="col-sm" style="padding-left: 0px">
+										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= my_events[myClass][eventId].departure %></li>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm" style="padding-right: 0px">
+										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Return at:</li>
+									</div>
+									<div class="col-sm" style="padding-left: 0px">
+										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= my_events[myClass][eventId].date %></li>
+									</div>
+								</div>
+							</ul>
+							<div class="card-block text-center">
+								<button type="button" class="btn btn-primary" >Sign Up</button>
+							</div>
+						</div>
+						<!-- Card -->
+					<% } %>
+					<% } %>
+					<% } %>
+				</div>
+				<div class="tab-pane fade" id="list-passenger" role="tabpanel" aria-labelledby="list-passenger-list">
+					<% for (myClass in my_events) { %>
+					<% if (myClass == "driver") { %>
+					<% for (eventId in my_events[myClass]) { %>
+						<!-- Card -->
+						<div class="card" style="width: 20rem;">
+							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
+							<div class="card-block">
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= myClass %></h4>
+								<p class="card-text"><%= my_events[myClass][eventId].description %></p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<div class="row">
+									<div class="col-sm" style="padding-right: 0px">
+										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Date:</li>
+									</div>
+									<div class="col-sm" style="padding-left: 0px">
+										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= my_events[myClass][eventId].date %></li>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm" style="padding-right: 0px">
+										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif; ">Depart at:</li>
+									</div>
+									<div class="col-sm" style="padding-left: 0px">
+										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= my_events[myClass][eventId].departure %></li>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm" style="padding-right: 0px">
+										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Return at:</li>
+									</div>
+									<div class="col-sm" style="padding-left: 0px">
+										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= my_events[myClass][eventId].date %></li>
+									</div>
+								</div>
+							</ul>
+							<div class="card-block text-center">
+								<button type="button" class="btn btn-primary" >Sign Up</button>
+							</div>
+						</div>
+						<!-- Card -->
+					<% } %>
+					<% } %>
+					<% } %>
+				</div>
+			</div>
+			<!-- Content -->
+		</div>
+		<!-- Second column -->
+	</div>
 
 
 	<h1 style="font-family: 'Montserrat', sans-serif; font-size: 48px; padding: 30px; background-color: #4b8cf4; border-color: #557ec1; border-radius: 10px">All Events</h1>
-
-
 	<div class="row" style="margin-bottom: 20%">
 	  <!-- First column -->
     <div class="col-4">
-
-
 	    <!-- Resorts -->
 	    <div class="list-group" id="list-tab" role="tablist">
 	      <a class="list-group-item list-group-item-action active" id="list-aBasin-list" data-toggle="list" href="#list-aBasin" role="tab" aria-controls="list-aBasin">Arapahoe Basin</a>
@@ -55,13 +163,11 @@
 	      <a class="list-group-item list-group-item-action" id="list-vail-list" data-toggle="list" href="#list-vail" role="tab" aria-controls="vail">Vail</a>
 	    </div>
 	    <!-- Resorts -->
-
 	  </div>
 	  <!-- First column -->
 
 	  <!-- Second column -->
 	  <div class="col-8">
-
 	    <!-- Content -->
 	    <div class="tab-content" id="nav-tabContent">
 	      <div class="tab-pane fade show active" id="list-aBasin" role="tabpanel" aria-labelledby="list-aBasin-list">
@@ -524,7 +630,6 @@
 					<% } %>
 					<% } %>
 				</div>
-
 	    </div>
 	    <!-- Content -->
 
