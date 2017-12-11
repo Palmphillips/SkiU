@@ -20,14 +20,17 @@ router.post('/', function(req, res) {
 
   connection = mysql.createConnection(connection_info);
 
-
-	connection.query("INSERT INTO events VALUES (DEFAULT, '" + req.session.email + "', '" + req.body.location + "', '" + req.body.departure + "', '" + req.body.date + "', '" + req.body.description + "', '" + req.body.passengers + "')", function (err, result) {
+  
+	connection.query("INSERT INTO events VALUES (DEFAULT, '" + req.session.email + "', '" + req.body.location + "', '" + req.body.departure + "', '" + req.body.date + "', '" + req.body.description + "', '" + req.body.passengers + "');", function (err, result) {
 		if (err) throw err;
-
-
-		res.redirect('home');
 	});
-  connection.end();
+  connection.query("UPDATE user_info SET events=(CONCAT((SELECT events FROM (SELECT * FROM user_info) AS t1 WHERE username='" + req.session.email + "'), ', ', CAST(LAST_INSERT_ID() as CHAR(100)))) WHERE username='" + req.session.email + "';", function (err, result) {
+      if (err) throw err;
+      res.redirect('home');
+  });
+
+  // connection.end();
+  // connection.end({ timeout: 60000000 });
 
   // handle disconnect
   connection.on('error', function(err) {
@@ -47,3 +50,4 @@ router.post('/', function(req, res) {
 });
 
 module.exports = router;
+;
