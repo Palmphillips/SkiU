@@ -207,9 +207,15 @@
 						    	</div>
 						    </div>
 						  </ul>
-						  <div class="card-block text-center">
-						    <button type="button" class="btn btn-primary" >Sign Up</button>
-						  </div>
+						  <form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value=<%eventId%> >
+
+						    <!-- <input type="submit" name="submit" value="Submit"> -->
+						    <div class="card-block text-center">
+						   		<button type="button" class="btn btn-primary" >Sign Up</button>
+						  	</div>
+						  </form>
+						  
 						</div>
 						<!-- Card -->
 					<% } %>
