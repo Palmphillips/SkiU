@@ -68,11 +68,11 @@ router.post('/', function(req, res) {
 
   // handle disconnect
   connection.on('error', function(err) {
-    console.log('db error', err);
+    // console.log('db error', err);
     if(err.code === 'PROTOCOL_CONNECTION_LOST') {
       connection.connect(function(err) {              // The server is either down
         if(err) {                                     // or restarting (takes a while sometimes).
-          console.log('error when connecting to db:', err);
+          // console.log('error when connecting to db:', err);
           setTimeout(function(){}, 2000); // We introduce a delay before attempting to reconnect,
         }                                     // to avoid a hot loop, and to allow our node script to
       });

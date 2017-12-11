@@ -42,7 +42,9 @@ router.get('/', function(req, res, next) {
       }
       else{
         //send 404 error
-        res.render('error');
+        res.render('error', {
+          description: "404 Event not found."
+        });
       }
   });
 });

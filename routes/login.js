@@ -17,7 +17,12 @@ router.post('/', function(req, res) {
   var email= req.body.email.toString();
   var password = req.body.pwd;
 
+  console.log("logging in");
+
   connection = mysql.createConnection(connection_info);
+
+  console.log("connection made");
+
 
   // Tests inputs using Regular Expressions
   // var emailRe = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -35,18 +40,12 @@ router.post('/', function(req, res) {
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
       if(rows.length >0){
-        console.log(rows[0].password);
-        console.log(rows[0].first_name);
-        console.log(password);
         bcrypt.compare(password, rows[0].password, function(err, hashRes) {
           if(hashRes) {
            // Passwords match
            //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
 
            // Assigning session variables to indicate that user is logged in
-
-
-
            var sess = req.session;
            sess.loggedIn = true;
            sess.email=email;
@@ -63,21 +62,6 @@ router.post('/', function(req, res) {
       else{
         res.send("Email does not exist");
       }
-  });
-
-  // handle disconnect
-  connection.on('error', function(err) {
-    console.log('db error', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
-      connection.connect(function(err) {              // The server is either down
-        if(err) {                                     // or restarting (takes a while sometimes).
-          console.log('error when connecting to db:', err);
-          setTimeout(function(){}, 2000); // We introduce a delay before attempting to reconnect,
-        }                                     // to avoid a hot loop, and to allow our node script to
-      });
-    } else {
-      throw err;
-    }
   });
 
 });
