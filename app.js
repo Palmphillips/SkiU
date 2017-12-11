@@ -16,6 +16,7 @@ var editProfile = require('./routes/editProfile');
 var eventPage = require('./routes/event');
 var createEvent = require('./routes/createEvent');
 var about = require('./routes/about');
+var joinEvent = require("./routes/joinEvent");
 
 var app = express();
 
@@ -49,7 +50,7 @@ app.use('/editProfile', editProfile);
 app.use('/event', eventPage);
 app.use('/createEvent', createEvent);
 app.use('/about', about);
-
+app.use('/joinEvent', joinEvent);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -178,40 +178,41 @@
 					<% for (eventId in events[location]) { %>
 						<!-- Card -->
 						<div class="card" style="width: 20rem;">
-							<img class="card-img-top" src="http://www.powderhounds.com/site/DefaultSite/filesystem/images/USA/ArapahoeBasin/LiftsTerrain/ArapahoeBasin-TrailMap.jpg" alt="Mr. Tickles">
-							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
-								<p class="card-text"><%= events[location][eventId].description %></p>
-							</div>
-							<ul class="list-group list-group-flush">
-								<div class="row">
-									<div class="col-sm" style="padding-right: 0px">
-										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Date:</li>
-									</div>
-									<div class="col-sm" style="padding-left: 0px">
-										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= events[location][eventId].date %></li>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm" style="padding-right: 0px">
-										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif; ">Depart at:</li>
-									</div>
-									<div class="col-sm" style="padding-left: 0px">
-										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= events[location][eventId].departure %></li>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm" style="padding-right: 0px">
-										<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Return at:</li>
-									</div>
-									<div class="col-sm" style="padding-left: 0px">
-										<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= events[location][eventId].date %></li>
-									</div>
-								</div>
-							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+						  <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
+						  <div class="card-block">
+						    <h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+						    <p class="card-text"><%= events[location][eventId].description %></p>
+						  </div>
+						  <ul class="list-group list-group-flush">
+						  	<div class="row">
+						  		<div class="col-sm" style="padding-right: 0px">
+						    		<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Date:</li>
+						    	</div>
+						    	<div class="col-sm" style="padding-left: 0px">
+						    		<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= events[location][eventId].date %></li>
+						    	</div>
+						    </div>
+						    <div class="row">
+						  		<div class="col-sm" style="padding-right: 0px">
+						    		<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif; ">Depart at:</li>
+						    	</div>
+						    	<div class="col-sm" style="padding-left: 0px">
+						    		<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= events[location][eventId].departure %></li>
+						    	</div>
+						    </div>
+						    <div class="row">
+						  		<div class="col-sm" style="padding-right: 0px">
+						    		<li class="list-group-item" style="font-family: 'Spectral SC', sans-serif;">Return at:</li>
+						    	</div>
+						    	<div class="col-sm" style="padding-left: 0px">
+						    		<li class="list-group-item" style="font-family: 'Montserrat', sans-serif;"><%= events[location][eventId].date %></li>
+						    	</div>
+						    </div>
+						  </ul>
+						  <form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -255,9 +256,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -301,9 +303,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -347,9 +350,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -393,9 +397,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -439,9 +444,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -485,9 +491,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -531,9 +538,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -577,9 +585,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
@@ -623,9 +632,10 @@
 									</div>
 								</div>
 							</ul>
-							<div class="card-block text-center">
-								<button type="button" class="btn btn-primary" >Sign Up</button>
-							</div>
+							<form method="POST" action="/joinEvent">
+						  	    <input type="hidden" name="eventID" id="eventID" value="<%= eventId %>">
+							    <input type="submit" name="submit" value="Submit">
+						  </form>
 						</div>
 						<!-- Card -->
 					<% } %>
