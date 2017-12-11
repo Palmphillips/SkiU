@@ -27,21 +27,29 @@
 	</nav>
 
 
-<div style="background-image: url(styles/pic1.jpg); height: 100%; width: 100%; position: fixed;overflow-y: scroll; margin-top: 50px">
+<div style="background-image: url(styles/pic1.jpg); height: 100%; width: 100%; position: fixed; margin-top: 50px">
   
-	<div class="container" style="background-color:white; margin-bottom: 80px; margin-top: 50px">
+	<div class="container" style="background-image: url(styles/Profilebg2.png);position: fixed;background-width 100% height: 400px; margin-bottom: 80px; margin-top: 50px">
 
-		<form method="post" enctype="multipart/form-data" action="/upload">
-			<input type="file" name="file">
-			<input type="submit" value="Submit">
-		</form>
-		<p2 style = "font-weight: bold"> <%= first_name %> <%= last_name %></p2>
-		<p2>Email: <%= email %></p2>
-		<p2>Phone: <%= phone %></p2>
-		<% if (my_profile == true) { %>
-			<p2> This profile is yours </p2>
-		<% } %>
-	</div>
+	
+		
+			<div id="split1">
+				<img src="http://www.thehindu.com/sci-tech/technology/internet/article17759222.ece/alternates/FREE_660/02th-egg-person" style="width:200px;height:200px; alt="Profile">
+				<form method="post" enctype="multipart/form-data" action="/upload">
+				<input type="file" name="file">
+				<input type="submit" style= "display: block"value="Submit">
+				</form>
+			</div>
+			
+			<div id="split2">
+				<p2 style = "font-weight: bold">Email: <%= email %></p2>
+				<p2>Name: <%= first_name %> <%= last_name %></p2>
+				<p2>Phone: <%= phone %></p2>
+				<% if (my_profile == true) { %>
+				<p2> This profile is yours </p2>
+				<% } %>
+			</div>
+	<div>
 
 </div>
 
