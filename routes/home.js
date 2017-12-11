@@ -27,7 +27,46 @@ router.get('/', function(req, res, next) {
   var first_name = sess.first_name;
   var last_name = sess.last_name;
   var my_events = {};
-  var events = {};
+  var events = {
+    "Arapahoe Basin": {
+      3: {
+        username: "pls",
+        departure: "69am",
+        date: "date69",
+        description: "blah blah"
+      },
+      5: {
+        username: "pls",
+        departure: "69am",
+        date: "date69",
+        description: "blah blah"
+      }
+    },
+    "Aspen": {
+    },
+    "Beaver Creek": {
+    },
+    "Breckenridge": {
+    },
+    "Copper Mountain": {
+    },
+    "Eldora": {
+    },
+    "Keystone": {
+    },
+    "Loveland": {
+    },
+    "Steamboat": {
+    },
+    "Vail": {
+      5: {
+        username: "pls",
+        departure: "69am",
+        date: "date69",
+        description: "blah blah"
+      }
+    }
+  };
 
   // // Start MySQL connection
   // connection = mysql.createConnection(connection_info);
@@ -46,7 +85,6 @@ router.get('/', function(req, res, next) {
   //   }
   // });
   //
-<<<<<<< HEAD
   // var myEventArray = [];
   //
   // // Get information about user
@@ -58,25 +96,16 @@ router.get('/', function(req, res, next) {
   //          // Place all events in a dictionary
   //          // Will get information about events later
   //          myEventArray = userRows[0].events.split(", ");
+  //          myEventArray.pop();
   //        }
   //      }
   //      else{
-=======
-  // // Get information about events
-  // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, myEventRows, fields) {
-  // if (err) throw err;
-  //    if(myEventRows.length>0){
-  //
-  //    }
-  //    else{
->>>>>>> master
   //
   //    }
   // });
   // connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
   //   if (err) throw err;
   //     if(eventRows.length>0){
-<<<<<<< HEAD
   //       for (var i=0; i<eventRows.length; i++){
   //         // When user is a passenger (from before)
   //         var passenger = false;
@@ -106,16 +135,6 @@ router.get('/', function(req, res, next) {
   //           }
   //         }
   //       }
-=======
-  //       // if (email == req.session.email) {
-  //       //   res.send('this event is yours');
-  //       // }
-  //       // else {
-  //       //   res.send('this event is somebody elses')
-  //       //
-  //       // }
-  //
->>>>>>> master
   //     }
   //     else{
   //       // send error
