@@ -15,6 +15,19 @@ var connection;
 
 router.get('/', function(req, res, next) {
   res.render('registration');
+  connection.on('error', function(err) {
+    // console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+      connection.connect(function(err) {              // The server is either down
+        if(err) {                                     // or restarting (takes a while sometimes).
+          // console.log('error when connecting to db:', err);
+          setTimeout(function(){}, 2000); // We introduce a delay before attempting to reconnect,
+        }                                     // to avoid a hot loop, and to allow our node script to
+      });
+    } else {
+      throw err;
+    }
+  });
 });
 
 router.post('/', function(req, res) {
@@ -52,7 +65,7 @@ router.post('/', function(req, res) {
 
   bcrypt.hash(req.body.password, 10, function(err, hash) {
     // Store hash in database
-    connection.query("INSERT INTO user_info VALUES ('" + req.body.email + "', '" + hash + "', '" + req.body.fname + "', '" + req.body.lname + "', '" + req.body.phone + "', '" + req.body.year + "')", function (err, result) {
+    connection.query("INSERT INTO user_info VALUES ('" + req.body.email + "', '" + hash + "', '" + req.body.fname + "', '" + req.body.lname + "', '" + req.body.phone + "', '" + req.body.year + "', '', '', '', '', '', '' )", function (err, result) {
   		if (err) throw err;
 
       // Assigning session variables to indicate that user is logged in

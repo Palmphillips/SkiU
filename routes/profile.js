@@ -41,6 +41,11 @@ router.get('/', function(req, res, next) {
           last_name: rows[0].last_name,
           phone: rows[0].phone,
           school_year: rows[0].school_year,
+          age: rows[0].age,
+          bio: rows[0].bio,
+          rider_type: rows[0].rider_type,
+          preferred_terrain: rows[0].preferred_terrain,
+          picture_url: rows[0].picture_url,
           my_profile: true
         });
         // TODO: If they have connected with that person (are their driver or passenger) they can see phone number + school year, but otherwise cannot
