@@ -46,6 +46,7 @@ router.get('/', function(req, res, next) {
   //   }
   // });
   //
+<<<<<<< HEAD
   // var myEventArray = [];
   //
   // // Get information about user
@@ -60,12 +61,22 @@ router.get('/', function(req, res, next) {
   //        }
   //      }
   //      else{
+=======
+  // // Get information about events
+  // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, myEventRows, fields) {
+  // if (err) throw err;
+  //    if(myEventRows.length>0){
   //
-  //      }
-  //    });
+  //    }
+  //    else{
+>>>>>>> master
+  //
+  //    }
+  // });
   // connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
   //   if (err) throw err;
   //     if(eventRows.length>0){
+<<<<<<< HEAD
   //       for (var i=0; i<eventRows.length; i++){
   //         // When user is a passenger (from before)
   //         var passenger = false;
@@ -95,6 +106,16 @@ router.get('/', function(req, res, next) {
   //           }
   //         }
   //       }
+=======
+  //       // if (email == req.session.email) {
+  //       //   res.send('this event is yours');
+  //       // }
+  //       // else {
+  //       //   res.send('this event is somebody elses')
+  //       //
+  //       // }
+  //
+>>>>>>> master
   //     }
   //     else{
   //       // send error
