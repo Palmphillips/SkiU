@@ -12,12 +12,16 @@ var connection;
 
 router.get('/', function(req, res, next) {
   //res.send("Your email: " + req.session.email);
-  res.render('home');
 
+  if (!req.session.loggedIn){
+    console.log("User not logged in. Redirecting to SkiU page.");
+    // res.render("SkiU");
+    res.redirect("/");
+  }
 
   connection = mysql.createConnection(connection_info);
 
-  // handle disconnect
+  //handle disconnect
   connection.on('error', function(err) {
     console.log('db error', err);
     if(err.code === 'PROTOCOL_CONNECTION_LOST') {
@@ -31,18 +35,17 @@ router.get('/', function(req, res, next) {
       throw err;
     }
   });
-
 });
 
 router.get('/logout',function(req,res){
-    req.session.destroy(function(err) {
-        if(err) {
-          console.log(err);
-        } else {
-          res.render('/');
-        }
-      });
-    });
+  req.session.destroy(function(err) {
+    if(err) {
+      console.log(err);
+    } else {
+      res.render('/');
+    }
+  });
+});
 
 
 module.exports = router;
