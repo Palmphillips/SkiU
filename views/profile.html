@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="styles/style.css" style="text/css" />
 </head>
-<body class="container">
+<body>
 
 
 	<nav class="navbar navbar-default navbar-toggleable-xl fixed-top " style="overflow: hidden; background-color: #13849E">
@@ -27,15 +27,23 @@
 	</nav>
 
 
-  <p>Name: <%= first_name %> <%= last_name %></p>
-	<div>
-		<p>Email: <%= email %></p>
-		<p>Phone: <%= phone %></p>
+<div style="background-image: url(styles/pic1.jpg); height: 100%; width: 100%; position: fixed;overflow-y: scroll; margin-top: 50px">
+  
+	<div class="container" style="background-color:white; margin-bottom: 80px; margin-top: 50px">
+
+		<form method="post" enctype="multipart/form-data" action="/upload">
+			<input type="file" name="file">
+			<input type="submit" value="Submit">
+		</form>
+		<p2 style = "font-weight: bold"> <%= first_name %> <%= last_name %></p2>
+		<p2>Email: <%= email %></p2>
+		<p2>Phone: <%= phone %></p2>
 		<% if (my_profile == true) { %>
-			<p> This profile is yours <p>
+			<p2> This profile is yours </p2>
 		<% } %>
 	</div>
 
+</div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
