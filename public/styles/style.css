@@ -147,3 +147,21 @@ td, th {
     width: 150px;
     height: 150px;
 }
+
+#split1{
+	width: 50%;
+	float:left;
+	padding: 20px;
+	margin: 0px;
+	display: inline;
+	
+}
+
+#split2{
+	width: 50%;
+	float:left;
+	padding: 50px;
+	margin: 0px;
+	display: inline;
+	
+}
