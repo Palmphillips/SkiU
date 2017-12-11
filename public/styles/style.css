@@ -64,6 +64,14 @@ p{
     text-align: center;
 }
 
+p2{
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: justify;
+    margin-bottom: 1rem;
+    display: block;
+}
+
 .pic1, .pic2 {
     position: relative;
     opacity: 0.65;
@@ -112,4 +120,30 @@ td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
+}
+
+#imageUpload
+{
+    display: none;
+}
+
+#profileImage
+{
+    cursor: pointer;
+}
+
+#profile-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#profile-container img {
+    width: 150px;
+    height: 150px;
 }
