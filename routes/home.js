@@ -37,28 +37,6 @@ router.get('/', function(req, res, next) {
     }
   };
   var events = {
-    // "Arapahoe Basin": {
-    //   3: {
-    //     username: "pls",
-    //     departure: "69am",
-    //     date: "date69",
-    //     description: "blah blah"
-    //   },
-    //   5: {
-    //     username: "pls",
-    //     departure: "69am",
-    //     date: "date69",
-    //     description: "blah blah"
-    //   }
-    // },
-    // "Vail": {
-    //   5: {
-    //     username: "pls",
-    //     departure: "69am",
-    //     date: "date69",
-    //     description: "blah blah"
-    //   }
-    // }
   };
 
   // // Start MySQL connection
@@ -79,6 +57,7 @@ router.get('/', function(req, res, next) {
   });
 
   var myEventArray = [];
+  var doneCollectingMyEventData = false;
   var doneCollectingData = false;
 
   // Get information about user
@@ -91,77 +70,87 @@ router.get('/', function(req, res, next) {
            // Will get information about events later
            myEventArray = userRows[0].events.split(", ");
            myEventArray.pop();
+           doneCollectingMyEventData = true;
+           console.log(myEventArray)
          }
        }
        else{
 
+         console.log(myEventArray)
      }
   });
-  connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
-    if (err) throw err;
-      if(eventRows.length>0){
-        for (var i=0; i<eventRows.length; i++){
-          // // When user is a passenger (from before)
-          var passenger = false;
-          // for (var j=0; j<myEventArray.length; j++){
-          //   if (eventRows[i].id == myEventArray[j]){
-          //     my_events["passenger"][eventRows[i].id] = {
-          //       // Populate stuff here
-          //     };
-          //     passenger = true;
-          //     break;
-          //   }
-          // }
-          // // When user is a driver (they created the event)
-          var driver = false;
-          // if (eventRows[i].username == email){
-          //   my_events["driver"][eventRows[i].id] = {
-          //     // Populate stuff here
-          //   };
-          //   driver = true;
-          // }
-          // Otherwise place event in events list
-          console.log(eventRows[i].location);
-          console.log(eventRows[i].id);
-          if (passenger == false && driver == false){
-            if (eventRows[i].location in events){
-              events[eventRows[i].location][eventRows[i].id] = {
+  // if (doneCollectingMyEventData == true) {
+    connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
+      if (err) throw err;
+        if(eventRows.length>0){
+          for (var i=0; i<eventRows.length; i++){
+            // // When user is a passenger (from before)
+            var passenger = false;
+            // for (var j=0; j<myEventArray.length; j++){
+            //   if (eventRows[i].id == myEventArray[j]){
+            //     my_events["passenger"][eventRows[i].id] = {
+            //       // Populate stuff here
+            //     };
+            //     passenger = true;
+            //     break;
+            //   }
+            // }
+            // // When user is a driver (they created the event)
+            var driver = false;
+            if (eventRows[i].username == email){
+              my_events["driver"][eventRows[i].id] = {
                 username: eventRows[i].username,
                 departure: eventRows[i].departure,
                 date: eventRows[i].date,
                 description: eventRows[i].description
               };
-              console.log("location alrady in database")
-              console.log(events[eventRows[i].location][eventRows[i].id]);
+              driver = true;
             }
-            else {
-              events[eventRows[i].location] = {};
-              events[eventRows[i].location][eventRows[i].id] = {
-                username: eventRows[i].username,
-                departure: eventRows[i].departure,
-                date: eventRows[i].date,
-                description: eventRows[i].description
-              };
+            // Otherwise place event in events list
+            console.log(eventRows[i].location);
+            console.log(eventRows[i].id);
+            if (passenger == false && driver == false){
+              if (eventRows[i].location in events){
+                events[eventRows[i].location][eventRows[i].id] = {
+                  username: eventRows[i].username,
+                  departure: eventRows[i].departure,
+                  date: eventRows[i].date,
+                  description: eventRows[i].description
+                };
+                console.log("location alrady in database")
+                console.log(events[eventRows[i].location][eventRows[i].id]);
+              }
+              else {
+                events[eventRows[i].location] = {};
+                events[eventRows[i].location][eventRows[i].id] = {
+                  username: eventRows[i].username,
+                  departure: eventRows[i].departure,
+                  date: eventRows[i].date,
+                  description: eventRows[i].description
+                };
+              }
             }
           }
+          console.log(events)
+          console.log(my_events);
+          doneCollectingData = true;
+          res.render("home", {
+            username: email,
+            first_name: first_name,
+            last_name: last_name,
+            my_events: my_events,
+            events: events
+          });
         }
-        console.log(events)
-        doneCollectingData = true;
-        res.render("home", {
-          username: email,
-          first_name: first_name,
-          last_name: last_name,
-          my_events: my_events,
-          events: events
-        });
-      }
-      else{
-        // send error
-        res.render('error', {
-          description: "Unable to connect to servers at the time. Please try again later."
-        });
-      }
-  });
+        else{
+          // send error
+          res.render('error', {
+            description: "Unable to connect to servers at the time. Please try again later."
+          });
+        }
+    });
+  // }
+
 
   // Render home page
   // if(doneCollectingData){
