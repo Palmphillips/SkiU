@@ -4,16 +4,20 @@ var router = express.Router();
 var mysql = require('mysql');
 const bcrypt = require('bcrypt');
 
-var connection = mysql.createConnection({
+var connection_info = {
   host: 'us-cdbr-iron-east-05.cleardb.net',
   user: 'ba8c6efcf34d52',
   password: '23eda3ad',
   database: 'heroku_d087506ec02ec33'
-});
+}
+
+var connection;
 
 router.post('/', function(req, res) {
   var email= req.body.email.toString();
   var password = req.body.pwd;
+
+  connection = mysql.createConnection(connection_info);
 
   // Tests inputs using Regular Expressions
   // var emailRe = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -59,6 +63,21 @@ router.post('/', function(req, res) {
       else{
         res.send("Email does not exist");
       }
+  });
+
+  // handle disconnect
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+      connection.connect(function(err) {              // The server is either down
+        if(err) {                                     // or restarting (takes a while sometimes).
+          console.log('error when connecting to db:', err);
+          setTimeout(function(){}, 2000); // We introduce a delay before attempting to reconnect,
+        }                                     // to avoid a hot loop, and to allow our node script to
+      });
+    } else {
+      throw err;
+    }
   });
 
 });

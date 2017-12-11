@@ -4,31 +4,20 @@ var router = express.Router();
 var mysql = require('mysql');
 const bcrypt = require('bcrypt');
 
-const connection = mysql.createConnection({
+var connection_info = {
   host: 'us-cdbr-iron-east-05.cleardb.net',
   user: 'ba8c6efcf34d52',
   password: '23eda3ad',
   database: 'heroku_d087506ec02ec33'
-});
+}
+
+var connection;
 
 router.get('/', function(req, res, next) {
   res.render('registration');
 });
 
 router.post('/', function(req, res) {
-  // connection.connect();
-  //
-  // connection.query('SELECT * FROM events', function (err, rows, fields) {
-  //   if (err) throw err
-  //
-  //   console.log(rows[0].username);
-  //
-  // //  res.render('index', { title: 'SkiU', rows: rows });
-  // });
-  //
-  //
-  //connection.connect();
-
   // Tests inputs using Regular Expressions
   // var emailRe = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   // var coloradoEmailRe = /.*/;
@@ -59,6 +48,8 @@ router.post('/', function(req, res) {
   //   window.alert('Please enter in a valid graduation year.');
   // }
 
+  connection = mysql.createConnection(connection_info);
+
   bcrypt.hash(req.body.password, 10, function(err, hash) {
     // Store hash in database
     connection.query("INSERT INTO user_info VALUES ('" + req.body.email + "', '" + hash + "', '" + req.body.fname + "', '" + req.body.lname + "', '" + req.body.phone + "', '" + req.body.year + "')", function (err, result) {
@@ -74,7 +65,21 @@ router.post('/', function(req, res) {
   		res.redirect('home');
   	});
   });
-  //connection.end();
+
+  // handle disconnect
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+      connection.connect(function(err) {              // The server is either down
+        if(err) {                                     // or restarting (takes a while sometimes).
+          console.log('error when connecting to db:', err);
+          setTimeout(function(){}, 2000); // We introduce a delay before attempting to reconnect,
+        }                                     // to avoid a hot loop, and to allow our node script to
+      });
+    } else {
+      throw err;
+    }
+  });
 });
 
 module.exports = router;
