@@ -46,22 +46,19 @@ router.get('/', function(req, res, next) {
   //   }
   // });
   //
-
-  //
-  // // Get information about user
+  // // Get information about events
   // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, myEventRows, fields) {
-  //    if (err) throw err;
-  //      if(myEventRows.length>0){
+  // if (err) throw err;
+  //    if(myEventRows.length>0){
   //
-  //      }
-  //      else{
+  //    }
+  //    else{
   //
-  //      }
-  //    });
+  //    }
+  // });
   // connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
   //   if (err) throw err;
   //     if(eventRows.length>0){
-  //       email = eventRows[0].username;
   //       // if (email == req.session.email) {
   //       //   res.send('this event is yours');
   //       // }

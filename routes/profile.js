@@ -18,7 +18,16 @@ router.get('/', function(req, res, next) {
 
   connection = mysql.createConnection(connection_info);
 
-  username = req.query.user;
+  var username;
+  if (req.query.user) {
+    username = req.query.user;
+  }
+  else if (req.session.email){
+    username = req.session.email;
+  }
+  else {
+    res.redirect("/");
+  }
   console.log(username);
 
   connection.query('SELECT * FROM user_info WHERE username = \"' + username + '\";', function (err, rows, fields) {
