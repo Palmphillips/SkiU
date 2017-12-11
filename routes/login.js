@@ -4,16 +4,25 @@ var router = express.Router();
 var mysql = require('mysql');
 const bcrypt = require('bcrypt');
 
-var connection = mysql.createConnection({
+var connection_info = {
   host: 'us-cdbr-iron-east-05.cleardb.net',
   user: 'ba8c6efcf34d52',
   password: '23eda3ad',
   database: 'heroku_d087506ec02ec33'
-});
+}
+
+var connection;
 
 router.post('/', function(req, res) {
   var email= req.body.email.toString();
   var password = req.body.pwd;
+
+  console.log("logging in");
+
+  connection = mysql.createConnection(connection_info);
+
+  console.log("connection made");
+
 
   // Tests inputs using Regular Expressions
   // var emailRe = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -31,18 +40,12 @@ router.post('/', function(req, res) {
   connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, rows, fields) {
     if (err) throw err;
       if(rows.length >0){
-        console.log(rows[0].password);
-        console.log(rows[0].first_name);
-        console.log(password);
         bcrypt.compare(password, rows[0].password, function(err, hashRes) {
           if(hashRes) {
            // Passwords match
            //res.send('Your Email "' + email + '"' + '\n' + 'Your Password "' + password + '". Succesful Login');
 
            // Assigning session variables to indicate that user is logged in
-
-
-
            var sess = req.session;
            sess.loggedIn = true;
            sess.email=email;

@@ -25,9 +25,4 @@ describe('loading express', function () {
     .get('/register')
     .expect(200, done);
   });
-  it('Page responds When navigating to a valid event page', function testEvent(done) {
-    request(server)
-    .get('/event?id=1')
-    .expect(200, done);
-  });
 });
