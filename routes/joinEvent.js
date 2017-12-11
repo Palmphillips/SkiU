@@ -22,6 +22,7 @@ router.post('/', function(req, res) {
   });
   connection.query("UPDATE user_info SET events=(CONCAT((SELECT events FROM (SELECT * FROM user_info) AS t1 WHERE username='" + req.session.email + "'), CAST('" + req.body.eventID +"' as CHAR(100)), ', ')) WHERE username='" + req.session.email + "';", function (err, result) {
       if (err) throw err;
+      req.session.signUpId = req.body.eventID;
       res.redirect('/home');
   });
 

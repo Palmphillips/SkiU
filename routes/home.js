@@ -61,24 +61,24 @@ router.get('/', function(req, res, next) {
   var doneCollectingData = false;
 
   // Get information about user
-  connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, userRows, fields) {
-     if (err) throw err;
-       if(userRows.length>0){
-         // Check if user has any events
-         if(userRows[0].events) {
-           // Place all events in a dictionary
-           // Will get information about events later
-           myEventArray = userRows[0].events.split(", ");
-           myEventArray.pop();
-           doneCollectingMyEventData = true;
-           console.log(myEventArray)
-         }
-       }
-       else{
-
-         console.log(myEventArray)
-     }
-  });
+  // connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, userRows, fields) {
+  //    if (err) throw err;
+  //      if(userRows.length>0){
+  //        // Check if user has any events
+  //        if(userRows[0].events) {
+  //          // Place all events in a dictionary
+  //          // Will get information about events later
+  //          myEventArray = userRows[0].events.split(", ");
+  //          myEventArray.pop();
+  //          doneCollectingMyEventData = true;
+  //          console.log(myEventArray)
+  //        }
+  //      }
+  //      else{
+  //
+  //        console.log(myEventArray)
+  //    }
+  // });
   // if (doneCollectingMyEventData == true) {
     connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
       if (err) throw err;
@@ -86,6 +86,17 @@ router.get('/', function(req, res, next) {
           for (var i=0; i<eventRows.length; i++){
             // // When user is a passenger (from before)
             var passenger = false;
+            if (req.session.signUpId) {
+              if (eventRows[i].id == req.session.signUpId){
+                my_events["passenger"][eventRows[i].id] = {
+                  username: eventRows[i].username,
+                  departure: eventRows[i].departure,
+                  date: eventRows[i].date,
+                  description: eventRows[i].description
+                };
+                passenger = true;
+              }
+            }
             // for (var j=0; j<myEventArray.length; j++){
             //   if (eventRows[i].id == myEventArray[j]){
             //     my_events["passenger"][eventRows[i].id] = {

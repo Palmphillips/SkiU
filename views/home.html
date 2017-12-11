@@ -56,7 +56,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://www.aber.ac.uk/staff-profile-assets/img/noimg.png" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= myClass %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= myClass %></h4>
 								<p class="card-text"><%= my_events[myClass][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -96,13 +96,13 @@
 				</div>
 				<div class="tab-pane fade" id="list-passenger" role="tabpanel" aria-labelledby="list-passenger-list">
 					<% for (myClass in my_events) { %>
-					<% if (myClass == "driver") { %>
+					<% if (myClass == "passenger") { %>
 					<% for (eventId in my_events[myClass]) { %>
 						<!-- Card -->
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://www.aber.ac.uk/staff-profile-assets/img/noimg.png" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= myClass %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= myClass %></h4>
 								<p class="card-text"><%= my_events[myClass][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -180,7 +180,7 @@
 						<div class="card" style="width: 20rem;">
 						  <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 						  <div class="card-block">
-						    <h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+						    <h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 						    <p class="card-text"><%= events[location][eventId].description %></p>
 						  </div>
 						  <ul class="list-group list-group-flush">
@@ -227,7 +227,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -274,7 +274,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="http://www.travelenvogue.com/app/webroot/img/userfiles/ski%20beaver%20creek.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -321,7 +321,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -368,7 +368,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -415,7 +415,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -462,7 +462,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -509,7 +509,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -556,7 +556,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
@@ -603,7 +603,7 @@
 						<div class="card" style="width: 20rem;">
 							<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/51zTubVDZoL.jpg" alt="Mr. Tickles">
 							<div class="card-block">
-								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= eventId %><%= location %></h4>
+								<h4 class="card-title" style="font-family: 'Spectral SC', sans-serif"><%= location %></h4>
 								<p class="card-text"><%= events[location][eventId].description %></p>
 							</div>
 							<ul class="list-group list-group-flush">
