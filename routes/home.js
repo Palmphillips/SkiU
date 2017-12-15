@@ -60,9 +60,7 @@ router.get('/', function(req, res, next) {
   var myEventArray = [];
   var doneCollectingMyEventData = false;
   var doneCollectingData = false;
-
-  // Get information about user
-  connection.query('SELECT * FROM user_info WHERE username = "' + email + '";', function (err, userRows, fields) {
+  connection.query('SELECT * FROM user_info WHERE username = \"' + email + '\";', function (err, userRows, fields) {
      if (err) throw err;
        if(userRows.length>0){
          // Check if user has any events
@@ -71,29 +69,25 @@ router.get('/', function(req, res, next) {
            // Will get information about events later
            myEventArray = userRows[0].events.split(", ");
            myEventArray.pop();
-           doneCollectingMyEventData = true;
            console.log(myEventArray)
-           console.log("BOIIIIIIIIIIIIIIIIIIIII")
          }
+         doneCollectingMyEventData = true;
        }
        else{
-
-         console.log(myEventArray)
-         console.log("BOIIIIIIIIIIIIIIIIIIIII")
-         console.log(email)
-         console.log(req.session.email)
      }
   });
+
+
   // if (doneCollectingMyEventData == true) {
     connection.query('SELECT * FROM events;', function (err, eventRows, fields) {
       if (err) throw err;
         if(eventRows.length>0){
-          console.log("BRUH: "+ sess.email)
+          // Get information about user's passener events
           for (var i=0; i<eventRows.length; i++){
             // // When user is a passenger (from before)
             var passenger = false;
-            if (req.session.signUpId) {
-              if (eventRows[i].id == req.session.signUpId){
+            for (var j=0; j<myEventArray.length; j++){
+              if (eventRows[i].id == myEventArray[j]){
                 my_events["passenger"][eventRows[i].id] = {
                   username: eventRows[i].username,
                   departure: eventRows[i].departure,
@@ -103,15 +97,6 @@ router.get('/', function(req, res, next) {
                 passenger = true;
               }
             }
-            // for (var j=0; j<myEventArray.length; j++){
-            //   if (eventRows[i].id == myEventArray[j]){
-            //     my_events["passenger"][eventRows[i].id] = {
-            //       // Populate stuff here
-            //     };
-            //     passenger = true;
-            //     break;
-            //   }
-            // }
             // // When user is a driver (they created the event)
             var driver = false;
             if (eventRows[i].username == email){
@@ -161,6 +146,7 @@ router.get('/', function(req, res, next) {
           });
         }
     });
+
   // }
 
 
