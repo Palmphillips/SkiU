@@ -40,8 +40,8 @@ router.get('/', function(req, res, next) {
   };
 
   // // Start MySQL connection
-  // connection = mysql.createConnection(connection_info);
-  var pool = mysql.createPool(connection_info);
+  connection = mysql.createConnection(connection_info);
+
   // Handle disconnection from server
   // connection.on('error', function(err) {
   //   // console.log('db error', err);
@@ -160,10 +160,6 @@ router.get('/', function(req, res, next) {
             description: "Unable to connect to servers at the time. Please try again later."
           });
         }
-
-        connection.release();
-
-        if (error) throw error;
     });
   // }
 
