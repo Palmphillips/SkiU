@@ -5,11 +5,11 @@ var mysql = require('mysql');
 const bcrypt = require('bcrypt');
 
 var connection_info = {
-  host: 'us-cdbr-iron-east-05.cleardb.net',
-  user: 'ba8c6efcf34d52',
-  password: '23eda3ad',
-  database: 'heroku_d087506ec02ec33'
-}
+  host: 'tk3mehkfmmrhjg0b.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+  user: 'o7g1pc8gw1nmeehm',
+  password: 'gbgqf33r8bj4bqzj',
+  database: 'qpb8oulw3o6oklee'
+};
 
 var connection;
 
