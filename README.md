@@ -60,10 +60,10 @@ The front end languages will handle user input, while Python will use the input 
 
 ## Repo Organization/Structure
 Inside the repository you will see those files:
-- views: this file contians the HTML pages for the website.
-- ruotes:conatins the node.js files.
-- public: have two sub files in it and they are the scripts and styles which have the images and the css file.
-- node_modules: conatins node.js libraries.
+- views: contians the HTML pages for the website
+- ruotes: conatins the node.js files
+- public: contains the scripts and styles file which have the images and the css file
+- node_modules: conatins node.js libraries
 
 ## Where to find the website
 We already deployed the web app on heroku, so you can find it and run it here: http://skiu.herokuapp.com/
@@ -71,7 +71,7 @@ We already deployed the web app on heroku, so you can find it and run it here: h
 ## Build/Run/Test the code
 To run a local build, follow these steps:
 - Clone the repository from github
-- Using a local mysql server, create a new database calles SkiU, then in that database populate the required tables buy running the Tables.sql script
+- Using a local mysql server, create a new database called SkiU, then in that database populate the required tables by running the Tables.sql script
 - Navigate to the directory where the github repository was cloned
 - Run the following command: npm start (You would have to have npm installed)
 - On your browser, go to http://localhost:3000/
